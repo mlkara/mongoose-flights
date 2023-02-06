@@ -7,8 +7,8 @@
         <th>Pilots</th>
         <th>Pilot Ids</th>
         <th>Flight Attendant</th>
-    <   <th>Flight Attendant Ids</th>
-    <   <th>No Shows</th>
+        <th>FA Ids</th>
+        <th>No Shows</th>
         <th>Number of Passengers</th>
         <th>Gate</th>
         <th>Flight Crew Gate Time</th>
@@ -24,25 +24,12 @@
     </thead>
 </table>
 <tbody>
-    <% flights.forEach(function(f) %>
+    <% flights.forEach(function(f) {  %>
     <tr>
-        <td><%= f.pilot %></td>
-        <td><%= f.pilotId %></td>
-        <td><%= f.flightAttendants %></td>
-        <td><%= f.faId %></td>
-        <td><%= f.noShows ? 'Yes' : 'Nope' %></td>
-        <td><%= f.paxNum %></td>
-        <td><%= f.gate %></td>
-        <td><%= f.timeGate %></td>
-        <td><%= f.departed %></td>
-        <td><%= f.departs %></td>
+        <td><%= f.airline %></td>
         <td><%= f.airport %></td>
         <td><%= f.flightNo %></td>
-        <td><%= f.aircraft %></td>
-        <td><%= f.onTime ? 'Yes' : 'Nope' %></td>
-        <td><%= f.delayed ? 'Yes' : 'Nope' %></td>
-        <td><%= f.airMarshal ? 'Yes' : 'Nope' %></td>
-        <td><%= f.jumpseat ? 'Yes' : 'Nope' %></td>
+        <td><%= f.departs %></td>
     </tr>
     <% }); %>
     </tbody>

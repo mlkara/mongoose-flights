@@ -1,59 +1,21 @@
+<%- include('../partials/header') %>
+
 <h2>Enter a New Flight</h2>
 <form action="/flights" method="POST">
-  <label>Pilots:
-    <input type="text" name="flightCrew">
+  <label>Airline:
+    <input type="text" name="airline">
   </label><br>
-  <label>Pilot's Ids:
-      <input type="text" name="pilotId">
+  <label>Airport:
+      <input type="text" name="airport">
     </label><br>
-  <label>Flight Attendants:
-      <input type="text" name="flightCrew">
+  <label>Flight Number:
+      <input type="number" name="flightNo">
     </label><br>
-    <label>Flight Attendant's Ids:
-        <input type="text" name="faId">
-    </label><br>
-    <label>No Shows:
-    <input type="checkbox" name="noShows" checked>
-  </label><br>
-    <label>Number of Passengers:
-        <input type="number" name="paxNum">
-    </label><br>
-    <label>Gate:
-        <input type="text" name="gate">
-    </label><br>
-    <label>Flight Crew Gate Time:
-        <input type="number" name="timeGate">
-    </label><br>
-    <label>Departure Time:
-        <input type="number" name="depart">
-    </label><br>
-    <label>Departure Date:
+    <label>Departs:
         <input type="number" name="departs">
     </label><br>
-    <label>Destination Airport:
-        <input type="text" name="flightCrew">
-    </label><br>
-    <label>Flight Number:
-        <input type="number" name="flightNo">
-    </label><br>
-    <form action="/flights" method="POST">
-        <label>Aircraft
-        <select name="aircraft">
-      <option value="700">737-700</option>
-      <option value="PG">737-800</option>
-    </select>
-  </label><br>
-    <label>On Time:
-    <input type="checkbox" name="onTime" checked>
-  </label><br>
-  <label>Delayed:
-    <input type="checkbox" name="delayed" checked>
-  </label><br>
-  <label>Air Marshal:
-    <input type="checkbox" name="airMarshal" checked>
-  </label><br>
-  <label>Jumpseats Available:
-    <input type="checkbox" name="jumpseat" checked>
-  </label><br>
+
   <button type="submit">Add flight</button>
 </form>
+
+<%- include('../partials/footer') %>

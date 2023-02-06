@@ -13,12 +13,6 @@ function index(req, res) {
 }
 
 function create(req, res) {
-    req.body.onTime = !!req.body.onTime;
-    req.body.delayed = !!req.body.delayed;
-    req.body.noShows = !!req.body.noShows;
-    req.body.jumpseat = !!req.body.jumpseat;
-    req.body.airMarshal = !!req.body.airMarshal;
-
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }
