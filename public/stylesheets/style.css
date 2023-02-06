@@ -6,3 +6,19 @@ body {
 a {
   color: #00B7FF;
 }
+
+body {
+    background: url("../images/airplane.png");  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: contain;
+    height: 100vh;
+    display: flex;  
+    flex-direction: column;
+      
+}
+
+h2 {
+  color: red; 
+}
