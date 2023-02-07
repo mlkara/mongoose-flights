@@ -1,0 +1,70 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Airline: </div>
+  <div><%= flight.airline %></div>
+  <div>Airport: </div>
+  <div><%= flight.airport %></div>
+  <div>Flight Number: </div>
+  <div><%= flight.flightNo %></div>
+  <div>Departs: </div>
+  <div><%= flight.departs %></div>
+</section>
+
+<br><br><h2>Destinations</h2>
+<form action="/flights" method="POST">
+  <label>Airport:</label>
+        <select name="airport">
+  <select name="airport">
+    <option value="lax">LAX</option>
+    <option value="sfo">SFO</option>
+    <option value="den">DEN</option>
+    <option value="san">SAN</option>
+    <option value="aus">AUS</option>
+    <option value="tpa">TPA</option>
+    <option value="cmh">CMH</option>
+    <option value="bwi">BWI</option>
+    <option value="ord">ORD</option>
+    <option value="mdw">MDW</option>
+    <option value="dal">DAL</option>
+    <option value="atl">ATL</option>
+    <option value="dfw">DFW</option>
+    <option value="sea">SEA</option>
+    <option value="las">LAS</option>
+    <option value="ewr">EWR</option>
+    <option value="phx">PHX</option>
+    <option value="iah">IAH</option>
+    <option value="mia">MIA</option>
+    <option value="bos">BOS</option>
+    <option value="dca">DCA</option>
+    <option value="lga">LGA</option>
+    <option value="jfk" selected>JFK</option>
+  </select>
+  <label>Arrival:</label>
+  <textarea name="content"></textarea>
+  <input type="submit" value="Add Destination">
+</form>
+
+<% if (flight.destinations.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Airport</th>
+        <th>Arrival</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% flight.destinations.forEach(function(d) { %>
+        <tr>
+          <td><%= d.airport %></td>
+          <td><%= d.arrival %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Flights Yet</h5>
+<% } %>
+
+<%- include('../partials/footer') %>
