@@ -1,70 +1,67 @@
-<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flights</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/flights">All Flights</a>
+      <a href="/flights/new">Add New Flight</a>
+    </nav>
+    <h1><%= title %></h1>
+    <div class="flight-details">
+      <ul>
+        <li><span>Airline:</span> <%= flight.airline %></li>
+        <li><span>Airport:</span> <%= flight.airport %></li>
+        <li><span>Flight Number:</span> <%= flight.flightNo %></li>
+        <li><span>Departs:</span> <%= flight.departs %></li>
+        <% flight.destinations.forEach(e => { %>
+          <li>
+            <span>Arrival:</span>
+            <%= e.airport %>
+            -
+            <%= e.arrival %>
+          </li>
+            <% }) %>
+        </ul>
+      </div>
+      <h2> Add Destination</h2>
+      <form action="/flights/<%= flight._id %>/destinations" method="POST">
+        <label>Airport:
+          <select name="airport" >
+            <option value="LAX">LAX</option>
+      <option value="SFO">SFO</option>
+      <option value="DEN">DEN</option>
+      <option value="SAN">SAN</option>
+      <option value="AUS">AUS</option>
+      <option value="TPA">TPA</option>
+      <option value="CMH">CMH</option>
+      <option value="BWI">BWI</option>
+      <option value="ORD">ORD</option>
+      <option value="MDW">MDW</option>
+      <option value="DAL">DAL</option>
+      <option value="ATL">ATL</option>
+      <option value="DFW">DFW</option>
+      <option value="SEA">SEA</option>
+      <option value="LAS">LAS</option>
+      <option value="EWR">EWR</option>
+      <option value="PHX">PHX</option>
+      <option value="IAH">IAH</option>
+      <option value="MIA">MIA</option>
+      <option value="BOS">BOS</option>
+      <option value="DCA">DCA</option>
+      <option value="LGA">LGA</option>
+      <option value="JFK" selected>JFK</option>
+          </select>
+        </label><br>
+      </label><br>
+      <label>Arrives:
+        <input type="datetime-local" name="arrival">
+      </label><br>
+      <input type="submit" value="Add Destination" class="add-dest-btn">
+      </form>
 
-<section id="show-page">
-  <div>Airline: </div>
-  <div><%= flight.airline %></div>
-  <div>Airport: </div>
-  <div><%= flight.airport %></div>
-  <div>Flight Number: </div>
-  <div><%= flight.flightNo %></div>
-  <div>Departs: </div>
-  <div><%= flight.departs %></div>
-</section>
-
-<br><br><h2>Destinations</h2>
-<form action="/flights" method="POST">
-  <label>Airport:</label>
-        <select name="airport">
-  <select name="airport">
-    <option value="lax">LAX</option>
-    <option value="sfo">SFO</option>
-    <option value="den">DEN</option>
-    <option value="san">SAN</option>
-    <option value="aus">AUS</option>
-    <option value="tpa">TPA</option>
-    <option value="cmh">CMH</option>
-    <option value="bwi">BWI</option>
-    <option value="ord">ORD</option>
-    <option value="mdw">MDW</option>
-    <option value="dal">DAL</option>
-    <option value="atl">ATL</option>
-    <option value="dfw">DFW</option>
-    <option value="sea">SEA</option>
-    <option value="las">LAS</option>
-    <option value="ewr">EWR</option>
-    <option value="phx">PHX</option>
-    <option value="iah">IAH</option>
-    <option value="mia">MIA</option>
-    <option value="bos">BOS</option>
-    <option value="dca">DCA</option>
-    <option value="lga">LGA</option>
-    <option value="jfk" selected>JFK</option>
-  </select>
-  <label>Arrival:</label>
-  <textarea name="content"></textarea>
-  <input type="submit" value="Add Destination">
-</form>
-
-<% if (flight.destinations.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>Airport</th>
-        <th>Arrival</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% flight.destinations.forEach(function(d) { %>
-        <tr>
-          <td><%= d.airport %></td>
-          <td><%= d.arrival %></td>
-        </tr>
-      <% }); %>
-    </tbody>
-  </table>
-<% } else { %>
-  <h5>No Flights Yet</h5>
-<% } %>
-
-<%- include('../partials/footer') %>
+</body>
+</html>

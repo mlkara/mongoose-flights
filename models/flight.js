@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+
+
 const destinationSchema = new Schema({
   airport: {
     type: String,
@@ -50,7 +52,7 @@ const flightSchema = new Schema({
       "Southwest",
       "United",
       "Delta",
-      "JetBLue",
+      "JetBlue",
       "British Airways",
       "Air Canada",
       "Aer Lingus",

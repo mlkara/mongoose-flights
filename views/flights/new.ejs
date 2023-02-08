@@ -1,9 +1,33 @@
-<%- include('../partials/header') %>
 
-<h2>Enter a New Flight</h2>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/flights">All Flights</a>
+      <a href="/flights/new">Add New Flight</a>
+    </nav>
 <form action="/flights" method="POST">
   <label>Airline:
     <select name="airline">
+      <option value="American">American Airlines</option>
+  <option value="Southwest">Southwest Airlines</option>
+  <option value="United">United Airlines</option>
+  <option value="Delta">Delta Air Lines</option>
+  <option value="Jetblue">Jetblue</option>
+  <option value="British Airways">British Airways</option>
+  <option value="Air Canada">Air Canada</option>
+  <option value="Aer Lingus">Aer Lingus</option>
+  <option value="Qantas">Qantas</option>
+  <option value="Virgin">Virgin Atlantic Airways</option>
+      
+    </select>
+  </label><br>
+  <label>Airport:
+    <select name="airport" >
       <option value="LAX">LAX</option>
       <option value="SFO">SFO</option>
       <option value="DEN">DEN</option>
@@ -27,29 +51,21 @@
       <option value="DCA">DCA</option>
       <option value="LGA">LGA</option>
       <option value="JFK" selected>JFK</option>
-</select><br>
-  <label>Airports: 
-  <select name="airport">
-  <option value="American">American Airlines</option>
-  <option value="Southwest">Southwest Airlines</option>
-  <option value="United">United Airlines</option>
-  <option value="Delta">Delta Air Lines</option>
-  <option value="Jetblue">Jetblue</option>
-  <option value="British Airways">British Airways</option>
-  <option value="Air Canada">Air Canada</option>
-  <option value="Aer Lingus">Aer Lingus</option>
-  <option value="Qantas">Qantas</option>
-  <option value="Virgin">Virgin Atlantic Airways</option>
-</select>
-</label><br>
-<label>Flight No:
-  <input type="number" name="flightNo">
-</label><br>
-<label>Departs:
-  <input type="datetime-local" name="departs" value="<%= departsDate %>">
-</label><br>
-<input type="submit" value="Add Flight">
+    </select>
+  </label><br>
+  <label>Flight No:
+    <input type="number" name="flightNo">
+  </label><br>
+  <label>Departs:
+    <input type="datetime-local" name="departs" value="<%= departsDate %>">
+  </label><br>
+  <input type="submit" value="Add Flight">
 </form>
+</body>
+</html>
 
 
-<%- include('../partials/footer') %>
+
+
+
+
