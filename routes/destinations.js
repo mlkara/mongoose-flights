@@ -1,13 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const destinationsCtrl = require('../controllers/destination   ss');
+const express = require('express')
+const router = express.Router()
+const destinationsCtrl = require('../controllers/destinations')
 
-// All routes "starts with" / (root)
-
-// POST /flights/:id/destinations
-router.get('/', destinationsCtrl.index);
-router.get('/new', destinationsCtrl.new);
-router.post('/', destinationsCtrl.create);
-router.get('/:id', destinationsCtrl.show);
+router.post('/flights/:id/destinations', destinationsCtrl.create)
+router.delete('/destinations/:id', destinationsCtrl.delete)
 
 module.exports = router;
