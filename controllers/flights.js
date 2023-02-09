@@ -1,5 +1,6 @@
 const Flight = require('../models/flight');
-const Ticket = require('.../models/ticket');
+const ticket = require('../models/ticket');
+const Ticket = require('../models/ticket');
 
 module.exports = {
   index,
@@ -12,20 +13,17 @@ module.exports = {
 function index(req, res) {
   Flight.find({}, function(err, flights){
     flights.sort((first, second) => first.departs - second.departs);
-    res.render('flights/index', {flights})
+    res.render('flights/index', {flights, title: 'All Flights'})
   });
 }
 
 function show(req, res) {
-  Flight.findById(req.params.id)
-    .populate('flight')
-    .exec(function(err, flight) {
-      res.render('flights/show', {
-        title: 'Flight Detail',
-        flight
-      });
-    });
-}
+  Flight.findById(req.params.id, function(err, flight) {
+    Ticket.find({flight: flight._id}, function(err, tickets) {
+      res.render('flights/show',{flight, title: 'Flight Details', tickets})
+    })
+  });   
+};  
 
 function newFlight(req, res) {
   const newFlight = new Flight();

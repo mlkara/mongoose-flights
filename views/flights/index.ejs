@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Flights</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/flights">All Flights</a>
-      <a href="/flights/new">Add New Flight</a>
-    </nav>
-    <h1>All Flights</h1>
-  <div class="flight-index">
-    <ul>
-      <li><h3>Airline</h3></li>
-      <li><h3>Airport</h3></li>
-      <li><h3>Flight Number</h3></li>
-      <li><h3>Departs</h3></li>
-      <li></li>
-    </ul>
-    <% flights.forEach(f => { %>
-      <ul>
-        <li><%= f.airline %></li>
-        <li><%= f.airport %></li>
-        <li><%= f.flightNo %></li>
-        <li><%= f.departs%></li>
-        <li class="detail"><a href="/flights/<%= f.id %>">Details</a></li>
-      </ul>
-    <% }) %>
-  </div>
-
-</body>
-</html>
+<%- include('../partials/header') %>
+  <table>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Airport</th>
+        <th>Flight#</th>
+        <th>Departs</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% flights.forEach(function(f){ %> 
+      <tr>
+        <td><%= f.airline %></td>
+        <td><%= f.airport %></td>
+        <td><%= f.flightNo %></td>
+        <td><%= f.departs %></td>
+        <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <%- include('../partials/footer') %>

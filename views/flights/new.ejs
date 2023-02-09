@@ -1,17 +1,8 @@
 
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/flights">All Flights</a>
-      <a href="/flights/new">Add New Flight</a>
-    </nav>
-<form action="/flights" method="POST">
-  <label>Airline:
+<%- include('../partials/header') %>
+
+<form id-="new-form" action="/flights" method="POST">
+    <label>Airline:
     <select name="airline">
       <option value="American">American Airlines</option>
   <option value="Southwest">Southwest Airlines</option>
@@ -23,7 +14,6 @@
   <option value="Aer Lingus">Aer Lingus</option>
   <option value="Qantas">Qantas</option>
   <option value="Virgin">Virgin Atlantic Airways</option>
-      
     </select>
   </label><br>
   <label>Airport:
@@ -53,16 +43,18 @@
       <option value="JFK" selected>JFK</option>
     </select>
   </label><br>
-  <label>Flight No:
+
+  <label>Flight Number:
     <input type="number" name="flightNo">
   </label><br>
+
   <label>Departs:
     <input type="datetime-local" name="departs" value="<%= departsDate %>">
   </label><br>
   <input type="submit" value="Add Flight">
 </form>
-</body>
-</html>
+
+<%- include('../partials/footer') %>
 
 
 

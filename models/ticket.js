@@ -12,7 +12,11 @@ const ticketSchema = new Schema({
     min: 0,
   },
 
-  flight: ObjectId
+  flight: {
+    type: Schema.Types.ObjectId,
+    ref: 'Flight',
+  },
+
 });
 
   module.exports = mongoose.model('Ticket', ticketSchema);
